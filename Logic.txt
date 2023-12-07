@@ -1,0 +1,113 @@
+EASY 1 
+Question:Given a string s consisting of words and spaces, return the length of the last word in the string.
+
+1. Input: Receive a string `s` as input.
+
+2. Split the String:
+   - Utilize the split method to break down the input string into a list of words. This is achieved through the statement `words = s.split()`.
+
+3. Check for Empty String:
+   - Examine whether the resulting list of words (`words`) is empty. If it is, this indicates that there are no words in the input string, and the function should return 0.
+
+4. Return Length of Last Word:
+   - If the list of words contains elements, return the length of the last word. Achieve this by accessing the last element of the list using `len(words[-1])`.
+
+5. Algorithm Overview:
+   - Accept a string input.
+   - Split the string into words.
+   - If no words are present, return 0.
+   - If there are words, return the length of the last word.
+
+6. Usage:
+   - Prompt the user to input a string (`s`).
+   - Call the function with the provided input.
+
+EASY 3
+Question:Given an integer numRows, return the first numRows of Pascal's triangle. In Pascal's triangle, each number is the sum of the two numbers directly
+
+1.The triangle's corner elements are always 1, and thus, they are initialized to 1.
+
+2.The triangle is represented as 'A', and the variable 'row' signifies the row number.
+
+3.For any given row (considering indexing from 1), the value at a specific position is the sum of the values in the previous row at the same and the previous positions. For example, at row 3, (again, considering indexing from 1):
+
+A[3][2] = A[2][1] + A[2][2].
+This logic is consistently applied throughout the code.
+
+MEDIUM 2
+Question:Medium- Given an integer array of size n, find all elements that appear more than ⌊ n/3 ⌋
+times
+
+1. Initialization:
+   - Initialize candidate1, count1, candidate2, and count2 to None and 0 respectively.
+
+2. First Pass - Finding Potential Candidates:
+   - Iterate through the array nums to find potential candidates:
+      a. If candidate1 is equal to the current number, increment count1.
+      b. If candidate2 is equal to the current number, increment count2.
+      c. If count1 is 0, set candidate1 to the current number and count1 to 1.
+      d. If count2 is 0, set candidate2 to the current number and count2 to 1.
+      e. If none of the above conditions are met, decrement both count1 and count2.
+
+3. Reset Counts:
+   - Reset count1 and count2 to 0.
+
+4. Second Pass - Checking Counts:
+   - Iterate through the array nums again:
+      a. If the current number is equal to candidate1, increment count1.
+      b. If the current number is equal to candidate2, increment count2.
+
+5. Initialize Result List:
+   - Initialize an empty list result.
+
+6. Check and Add to Result:
+   - If count1 is greater than ⌊ n/3 ⌋, add candidate1 to the result.
+   - If count2 is greater than ⌊ n/3 ⌋, add candidate2 to the result.
+
+7. Return Result:
+   - Return the result list containing elements that appear more than ⌊ n/3 ⌋ times.
+
+HARD 2
+Question: You are given a string s. You can convert s to a palindrome by adding characters in front of it. Return the shortest palindrome you can find by performing this transformation.
+
+1. Example:
+   - Suppose the original string is "abab," and the reversed string is "baba."
+   - Concatenate the original and reversed strings: "ababbaba."
+
+2. Approach:
+   - Concatenate the original string with its reversed form to create a new string.
+     - Original: "abab"
+     - Reversed: "baba"
+     - New String: "ababbaba"
+   - Observe that the underlined part is the common prefix and suffix.
+
+3. KMP Algorithm:
+   - Utilize the Knuth-Morris-Pratt (KMP) algorithm to construct the Longest Prefix Suffix (LPS) table.
+   - For the given example:
+     ```
+     char:  a b a b b a b a
+     prefix: 0 0 1 2 0 1 2 3
+     ```
+     Here, 3 is the length of the longest proper prefix that is also a proper suffix.
+
+4. Constructing the Shortest Palindrome:
+   - Determine the number of elements that need to be removed by using the length obtained           from the LPS table.
+   - Construct the shortest palindrome by taking the substring from the length obtained to the end of the original text, reversing it, and concatenating it with the original text.
+
+HARD 3
+Question: Given an integer n, count the total number of digit 1 appearing in all non-negative integers less than or equal to n.
+
+
+1. Initialization:
+   - Initialize a variable `count` to 0.
+
+2. Iteration:
+   - Iterate through numbers from 1 to n (inclusive) using a for loop with loop variable `i`:
+      a. Convert `i` to a string.
+      b. Count the occurrences of '1' in the string representation of `i`.
+      c. Add the count to the overall `count` variable.
+
+3. Result:
+   - Return the final `count` as the result.
+
+
